@@ -35,8 +35,8 @@ if "%answer1%"=="o" (
     echo Downloading FPC: 93%%
     svn.exe cat --non-interactive --trust-server-cert -r HEAD "https://github.com/mgrinzPlayer/CheatEngineUpDeluxe/trunk/fpcsrc.part02.rar" > fpcsrc.part02.rar
     echo Downloading FPC: 100%%
-  )
-  echo Etracting FPC...
+  ) else echo Downloading FPC: 100%%
+  echo Extracting FPC...
   UnRAR.exe x -y -idq fpcsrc.part01.rar
 ) else if "%answer1%"=="r" (
   if NOT EXIST UnRAR.exe ( svn.exe cat --non-interactive --trust-server-cert -r HEAD "https://github.com/mgrinzPlayer/CheatEngineUpDeluxe/trunk/UnRAR.exe" > UnRAR.exe )
@@ -50,8 +50,8 @@ if "%answer1%"=="o" (
     echo Downloading Compiled FPC: 81%%
     svn.exe cat --non-interactive --trust-server-cert -r HEAD "https://github.com/mgrinzPlayer/CheatEngineUpDeluxe/trunk/compiledFPC/compiled_fpc.part04.rar" > compiled_fpc.part04.rar
     echo Downloading Compiled FPC: 100%%
-  )
-  echo Etracting Compiled FPC...
+  ) else echo Downloading Compiled FPC: 100%%
+  echo Extracting Compiled FPC...
   UnRAR.exe x -y -idq compiled_fpc.part01.rar
 )
 
@@ -63,8 +63,8 @@ if "%answer2%"=="o" (
     echo Downloading Lazarus
     svn.exe cat --non-interactive --trust-server-cert -r HEAD "https://github.com/mgrinzPlayer/CheatEngineUpDeluxe/trunk/lazarus.rar" > lazarus.rar
     echo Downloading Lazarus: 100%%
-  )
-  echo Etracting Lazarus...
+  ) else echo Downloading Lazarus: 100%%
+  echo Extracting Lazarus...
   UnRAR.exe x -y -idq lazarus.rar
 )
 
@@ -75,7 +75,7 @@ if NOT EXIST bootstrap.rar (
   svn.exe cat --non-interactive --trust-server-cert -r HEAD "https://github.com/mgrinzPlayer/CheatEngineUpDeluxe/trunk/bootstrap.rar" > bootstrap.rar
   echo Downloading bootstrap 100%%
 ) else echo Downloading bootstrap 100%%
-echo Etracting bootstrap...
+echo Extracting bootstrap...
 UnRAR.exe x -y -idq bootstrap.rar
 :bootstrapnotneeded
 
@@ -158,7 +158,7 @@ lazbuild.exe --compiler=%NEWFPC% --quiet --cpu=i386 --os=win32 "--build-ide=-dKe
 
 REM COMPILATION SECTION END
 
-echo Etracting GDB...
+echo Extracting GDB...
 ..\UnRAR.exe x -y -idq ..\mingw.rar
 
 pause
